@@ -4,7 +4,7 @@ services: docker
 # ２ dockerを利用する
 befor_install:
   - docker-compose up --build -d
-# ３ installまでに行う処理、コンテナを準備
+# ３ installまでに行う処理、コンテナを準備(プラグインのdocker compose形式ではなく docker-compose形式でないとエラー)
 script:
   - docker-compose exec --env 'RAILS_ENV=test' web rails db:create
   - docker-compose exec --env 'RAILS_ENV=test' web rails db:migrate
